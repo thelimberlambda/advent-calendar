@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+REMOTE_LOC=${REMOTE_LOC:-speckle.smithster.com:/var/www/sites/scratch/jl}
+
+scp index.html $REMOTE_LOC
+scp style.css $REMOTE_LOC
+scp popup-js.css $REMOTE_LOC
+scp -r images $REMOTE_LOC
+scp -r scripts $REMOTE_LOC
