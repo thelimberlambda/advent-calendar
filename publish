@@ -3,6 +3,14 @@
 set -e
 
 REMOTE_LOC=${REMOTE_LOC:-speckle.smithster.com:/var/www/sites/scratch/jl}
+CALTITLE=${CALTITLE:-Title}
+SLUG=${SLUG:-id}
+export CALTITLE
+export SLUG
+
+envsubst < index.html.tmpl > index.html
+
+cp scripts/messages.js.${SLUG} scripts/messages.js
 
 scp index.html $REMOTE_LOC
 scp style.css $REMOTE_LOC
